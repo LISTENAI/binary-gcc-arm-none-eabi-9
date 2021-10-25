@@ -1,6 +1,6 @@
 {
   "name": "@tool/gcc-arm-none-eabi-9",
-  "version": "1.0.2-2020-q2-update",
+  "version": "1.1.0-2020-q2-update",
   "description": "gcc-arm-none-eabi-9",
   "main": "lib",
   "publishConfig": {
@@ -8,9 +8,8 @@
   },
   "scripts": {
     "build": "tsc -p .",
-    "prepare": "rm -rf lib && npm run build",
-    "install": "node lib/scripts/install.js",
-    "uninstall": "node lib/scripts/uninstall.js"
+    "prepublishOnly": "rm -rf lib && npm run build",
+    "install": "node lib/install.js"
   },
   "repository": {
     "type": "git",
