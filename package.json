@@ -1,0 +1,36 @@
+{
+  "name": "@tool/gcc-arm-none-eabi-9",
+  "version": "1.0.2-2020-q2-update",
+  "description": "gcc-arm-none-eabi-9",
+  "main": "lib",
+  "publishConfig": {
+    "registry": "https://registry-lpm.listenai.com"
+  },
+  "scripts": {
+    "build": "tsc -p .",
+    "prepare": "rm -rf lib && npm run build",
+    "install": "node lib/scripts/install.js",
+    "uninstall": "node lib/scripts/uninstall.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LISTENAI/gcc-arm-none-eabi-9.git"
+  },
+  "author": "xychen <xychen@listenai.com>",
+  "maintainers": [
+    "xychen <xychen@listenai.com"
+  ],
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/LISTENAI/gcc-arm-none-eabi-9/issues"
+  },
+  "homepage": "https://github.com/LISTENAI/gcc-arm-none-eabi-9#readme",
+  "dependencies": {
+    "download": "^8.0.0"
+  },
+  "devDependencies": {
+    "@types/download": "^8.0.1",
+    "@types/node": "^16.11.1",
+    "typescript": "^4.4.4"
+  }
+}
