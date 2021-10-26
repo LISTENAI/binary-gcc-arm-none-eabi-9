@@ -5,6 +5,7 @@ import { TOOL_HOME } from './env';
 
 const execFile = promisify(_execFile);
 
+export const HOME = TOOL_HOME;
 export const PATH = join(TOOL_HOME, 'bin');
 
 export async function version(): Promise<string> {
