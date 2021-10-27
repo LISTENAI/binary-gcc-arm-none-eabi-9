@@ -5,3 +5,7 @@ node_modules
 /binary
 
 .vscode
+
+README.md
+jest.config.js
+/test
