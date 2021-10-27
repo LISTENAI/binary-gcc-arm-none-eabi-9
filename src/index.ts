@@ -1,14 +1,20 @@
 import { join } from 'path';
 import { promisify } from 'util';
 import { execFile as _execFile } from 'child_process';
-import { TOOL_HOME } from './env';
+import { Binary } from '@binary/type';
 
+const HOME = join(__dirname, '..', 'binary');
 const execFile = promisify(_execFile);
 
-export const HOME = TOOL_HOME;
-export const PATH = join(TOOL_HOME, 'bin');
+export default <Binary>{
+  homeDir: HOME,
 
-export async function version(): Promise<string> {
-  const { stdout } = await execFile(join(PATH, 'arm-none-eabi-gcc'), ['--version']);
-  return stdout.split('\n')[0].trim();
-}
+  binaryDir: join(HOME, 'bin'),
+
+  env: {},
+
+  async version() {
+    const { stdout } = await execFile(join(this.binaryDir, 'arm-none-eabi-gcc'), ['--version']);
+    return stdout.split('\n')[0].trim();
+  }
+};

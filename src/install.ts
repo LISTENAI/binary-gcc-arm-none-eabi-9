@@ -1,7 +1,7 @@
 import * as download from 'download';
 import { rm } from 'fs/promises';
 import { platform } from 'os';
-import { TOOL_HOME } from './env';
+import binary from './';
 
 const PREFIX = 'https://cdn.iflyos.cn/public/gcc-arm-none-eabi/';
 
@@ -18,11 +18,11 @@ const NAME = `gcc-arm-none-eabi-9-2020-q2-update-${SUFFIX}.zip`;
 (async () => {
 
   try {
-    await rm(TOOL_HOME, { recursive: true });
+    await rm(binary.homeDir, { recursive: true });
   } catch (e) {
   }
 
-  await download(`${PREFIX}${NAME}`, TOOL_HOME, {
+  await download(`${PREFIX}${NAME}`, binary.homeDir, {
     extract: true,
   });
 
