@@ -1,4 +1,4 @@
-@binary/gcc-arm-none-eabi-9
+@binary/gcc-arm-none-eabi-9 [![test](https://github.com/LISTENAI/binary-gcc-arm-none-eabi-9/actions/workflows/test.yml/badge.svg)](https://github.com/LISTENAI/binary-gcc-arm-none-eabi-9/actions/workflows/test.yml)
 ==========
 
 [![source-img]][source-url] [![lpm-img]][lpm-url]
