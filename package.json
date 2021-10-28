@@ -2,7 +2,8 @@
   "name": "@binary/gcc-arm-none-eabi-9",
   "version": "2.0.0-2020-q2-update",
   "description": "gcc-arm-none-eabi-9",
-  "main": "lib",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "publishConfig": {
     "registry": "https://registry-lpm.listenai.com"
   },
@@ -18,10 +19,10 @@
   ],
   "license": "UNLICENSED",
   "dependencies": {
+    "@binary/type": "^1.0.1",
     "download": "^8.0.0"
   },
   "devDependencies": {
-    "@binary/type": "^1.0.1",
     "@types/download": "^8.0.1",
     "@types/jest": "^27.0.2",
     "@types/node": "^16.11.1",
