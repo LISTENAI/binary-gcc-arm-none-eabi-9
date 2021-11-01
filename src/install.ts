@@ -1,20 +1,14 @@
 import download from 'download';
 import { rm } from 'fs/promises';
-import { platform } from 'os';
-import { join } from 'path';
+import decompress from '@xingrz/decompress';
+import { HOME } from './index';
 
-const PREFIX = 'https://cdn.iflyos.cn/public/gcc-arm-none-eabi/';
+const PACKAGE = 'gcc-arm-none-eabi-9';
+const VERSION = '2020-q2-update';
 
-const SUFFIX = (() => {
-  switch (platform()) {
-    case 'win32': return 'win32';
-    case 'darwin': return 'mac';
-    default: return 'x86_64-linux';
-  }
-})();
+const NAME = `${PACKAGE}-${VERSION}-${process.platform}_${process.arch}.tar.zst`;
 
-const NAME = `gcc-arm-none-eabi-9-2020-q2-update-${SUFFIX}.zip`;
-const HOME = join(__dirname, '..', 'binary');
+const URL = `https://cdn.iflyos.cn/public/lisa-binary/${PACKAGE}/${NAME}`;
 
 (async () => {
 
@@ -23,8 +17,7 @@ const HOME = join(__dirname, '..', 'binary');
   } catch (e) {
   }
 
-  await download(`${PREFIX}${NAME}`, HOME, {
-    extract: true,
-  });
+  const archive = await download(URL);
+  await decompress(archive, HOME);
 
 })();
