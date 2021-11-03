@@ -1,6 +1,5 @@
-import download from 'download';
+import download from '@xingrz/download2';
 import { rm } from 'fs/promises';
-import decompress from '@xingrz/decompress';
 import { HOME } from './index';
 
 const PACKAGE = 'gcc-arm-none-eabi-9';
@@ -17,7 +16,8 @@ const URL = `https://cdn.iflyos.cn/public/lisa-binary/${PACKAGE}/${NAME}`;
   } catch (e) {
   }
 
-  const archive = await download(URL);
-  await decompress(archive, HOME);
+  await download(URL, HOME, {
+    extract: true,
+  });
 
 })();
